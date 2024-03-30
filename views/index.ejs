@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="leaderboard">
+        <img src="images/LeetCode_Logo_1.png" class="theme-img">
+        <div class="description">
+            <h3>LeetCode Leaderboard</h3>
+            <p>get on the top!!!🎉</p>
+            <input id="search" class="search" placeholder="Search" oninput="search()">
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            Qsolved
+                        </td>
+                        <td>
+                            TotalSolved
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    <tr>
+                        <td id="winner"><%= arr[0].name %></td>
+                        <td><img src=<%= arr[0].pic %>><p><%= arr[0].id %></p></td>
+                        <td><%= arr[0].totalSolved %></td>
+                        <td>12.54</td>
+                    </tr>
+                    <tr>
+                        <td id="winner"><%= arr[1].name %></td>
+                        <td><img src=<%= arr[1].pic %>><p><%= arr[1].id %></p></td>
+                        <td><%= arr[1].totalSolved %></td>
+                        <td>12.54</td>
+                    </tr>
+                    <tr>
+                        <td id="winner"><%= arr[2].name %></td>
+                        <td><img src=<%= arr[2].pic %>><p><%= arr[2].id %></p></td>
+                        <td><%= arr[2].totalSolved %></td>
+                        <td>12.54</td>
+                    </tr>
+                    <tr>
+                        <td id="winner"><%= arr[3].name %></td>
+                        <td><img src=<%= arr[3].pic %>><p><%= arr[3].id %></p></td>
+                        <td><%= arr[3].totalSolved %></td>
+                        <td>12.54</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    function search(){
+        var text = document.getElementById('search').value;
+        const tr = document.getElementsByTagName('tr');
+        for (let i=1;i<tr.length;i++){
+            if(!tr[i].children[1].children[1].innerHTML.toLowerCase().includes(
+                text.toLowerCase()
+            )){
+                tr[i].style.display = 'none';
+            }
+            else{
+                tr[i].style.display = '';
+            }
+        }
+    }
+</script>
+</html>
